@@ -17,7 +17,7 @@ public class Garagem {
 	}
 
 	public String imprimeDados() {
-		return "Garagem \nVaga: " + vagas;
+		return "\nVaga: " + vagas;
 	}
 
 }

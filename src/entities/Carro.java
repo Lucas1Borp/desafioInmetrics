@@ -1,11 +1,11 @@
 package entities;
 
-public class Carro extends Garagem {
+public class Carro extends Garagem implements Comparable<Carro> {
 
 	private String cor, placa, modelo, marca, cidade;
 	private Double veloxMax;
 
-	public Carro(Integer vagas, String cor, String placa, Double veloxMax, String modelo, String cidade, String marca) {
+	public Carro(String cor, Integer vagas, String placa, Double veloxMax, String modelo, String cidade, String marca) {
 		super(vagas);
 		this.cor = cor;
 		this.placa = placa;
@@ -80,8 +80,13 @@ public class Carro extends Garagem {
 	@Override
 	public String imprimeDados() {
 
-		return "DADOS DO VEICULO  \nMarca:" + marca + "\nModelo:" + modelo + "\nCor:" + cor + "\nPlaca:" + placa
-				+ "\nVelocidade Maxima" + veloxMax + "\nCidade de origem:" + cidade + "\n" + super.imprimeDados();
+		return "DADOS DO VEICULO  \n" + super.imprimeDados() + "\nMarca:" + marca + "\nModelo:" + modelo + "\nCor:"
+				+ cor + "\nPlaca:" + placa + "\nVelocidade Maxima" + veloxMax + "\nCidade de origem:" + cidade + "\n";
+	}
+
+	@Override
+	public int compareTo(Carro c) {
+		return this.cor.compareTo(c.cor);
 	}
 
 }
